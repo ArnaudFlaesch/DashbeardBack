@@ -1,0 +1,13 @@
+language : java
+sudo: required
+jdk:
+   - oraclejdk8
+
+before_install:
+   - chmod +x mvnw
+   - curl http://www.jpm4j.org/install/script | sudo sh
+   - sudo jpm install com.codacy:codacy-coverage-reporter:assembly
+
+after_success:
+   - mvn clean test jacoco:report coveralls:report
+   - codacy-coverage-reporter -l Java -r target/site/jacoco/jacoco.xml --projectToken 4825fb2a6a7d4ed89caa0ee2ad5709e3
