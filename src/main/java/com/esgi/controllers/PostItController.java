@@ -1,9 +1,9 @@
 package com.esgi.controllers;
 
 import com.esgi.model.PostIt;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.esgi.repositories.PostItRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,8 +14,26 @@ import java.util.List;
 @RequestMapping("/postit")
 public class PostItController {
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @Autowired
+    private PostItRepository postItRepository;
+
+    @RequestMapping(method = RequestMethod.GET)
     public List<PostIt> getDashboard() {
-        return (null);
+        return (postItRepository.findAll());
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public void addPostIt(@RequestBody PostIt newPostIt) {
+        postItRepository.save(newPostIt);
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public void updatePostIt(@RequestBody PostIt updatedPostIt) {
+        postItRepository.save(updatedPostIt);
+    }
+
+    @RequestMapping(value = "/remove", method = RequestMethod.POST)
+    public void removePostIt(@RequestParam Long idPostIt) {
+        postItRepository.delete(idPostIt);
     }
 }
