@@ -54,7 +54,23 @@ public class PostItControllerTests {
 
     @Test
     public void shouldAddOnePostIt() {
-
+        final PostIt postIt = new PostIt();
+        postIt.setContent("contenu du postit, c'est le contenu du post it, chef un lapin! ni!");
+        postIt.setIdPostIt(999999999999999999L);
+        postIt.setPositionX(2f);
+        postIt.setPositionY(3f);
+        postIt.setSizeX(30f);
+        postIt.setSizeY(60f);
+        given()
+                .log().all()
+                .contentType(JSON)
+                .body(toJson(postIt))
+                .when()
+                .post("/postit")
+                .then()
+                .log().all()
+                .body("2.0", is(postIt.getPositionX()))
+                .body("3.0", is(postIt.getPositionY()));
     }
 
     @Test
