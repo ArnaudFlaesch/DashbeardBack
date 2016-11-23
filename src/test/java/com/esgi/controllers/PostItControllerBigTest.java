@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -25,12 +26,11 @@ import static org.slf4j.LoggerFactory.getLogger;
  * Created by Arnaud on 01/11/2016.
  * Modified by Valentin on 22/11/2016
  */
-@ActiveProfiles("tests")
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
 @RunWith(SpringJUnit4ClassRunner.class)
-public class PostItControllerTests {
+public class PostItControllerBigTest {
 
-    protected static final Logger LOGGER = getLogger(PostItControllerTests.class);
+    protected static final Logger LOGGER = getLogger(PostItControllerBigTest.class);
 
     @Autowired
     ObjectMapper objectMapper;
@@ -56,11 +56,12 @@ public class PostItControllerTests {
     public void shouldAddOnePostIt() {
         final PostIt postIt = new PostIt();
         postIt.setContent("contenu du postit, c'est le contenu du post it, chef un lapin! ni!");
-        postIt.setIdPostIt(999999999999999999L);
-        postIt.setPositionX(2f);
-        postIt.setPositionY(3f);
-        postIt.setSizeX(30f);
-        postIt.setSizeY(60f);
+        postIt.setIdPostIt((long)999999999);
+        postIt.setPositionX(2);
+        postIt.setPositionY(3);
+        postIt.setSizeX(30);
+        postIt.setSizeY(60);
+
         given()
                 .log().all()
                 .contentType(JSON)
