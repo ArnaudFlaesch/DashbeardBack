@@ -63,11 +63,10 @@ public class PostItControllerTest {
         verify(postItRepository, atLeastOnce()).save(mockPostIt);
     }
 
-
-
     @Test
     public void should_delete_post_it() {
-
+        postItController.removePostIt(mockPostIt.getIdPostIt());
+        verify(postItRepository, atLeastOnce()).delete(mockPostIt.getIdPostIt());
     }
 
 
