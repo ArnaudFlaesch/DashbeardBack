@@ -2,6 +2,7 @@ package com.esgi.controllers;
 
 import com.esgi.DashbeardApiApplication;
 import com.esgi.model.PostIt;
+import com.esgi.repositories.PostItRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -9,7 +10,13 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.verify;
+
+
 /**
+ *
  * Created by valentin on 23/11/2016.
  */
 @RunWith(MockitoJUnitRunner.class)
@@ -20,20 +27,15 @@ public class PostItControllerTest {
     PostItController postItController;
 
     @Mock
+    PostItRepository postItRepository;
+
+    @Mock
     PostIt mockPostIt;
 
     @Test
     public void should_create_new_post_it() {
-        /*
-        final InnerAccount innerAccount = InnerAccount.builder()
-                .username("Nusername")
-                .name("Nname")
-                .email("Nemail")
-                .password("Npassword")
-                .build();
-        accountController.createAccount(innerAccount);
-        verify(accountService).createAccount(innerAccount);
-        */
+        postItController.addPostIt(mockPostIt);
+        verify(postItRepository, atLeastOnce()).save(mockPostIt);
     }
 
     @Test/*(expected = CreationAccountException.class)*/
