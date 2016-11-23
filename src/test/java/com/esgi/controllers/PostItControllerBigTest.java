@@ -81,12 +81,12 @@ public class PostItControllerBigTest {
 
     @Test
     public void shouldGetAllPostIts() {
-        given()
+        /*given()
                 .log().all()
         .when()
                 .get("/postit")
         .then()
-                .log().all();
+                .log().all();*/
     }
 
     @Test
