@@ -2,14 +2,24 @@ package com.esgi.controllers;
 
 import com.esgi.DashbeardApiApplication;
 import com.esgi.model.PostIt;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import static com.jayway.restassured.RestAssured.given;
+import static com.jayway.restassured.http.ContentType.JSON;
+import static org.hamcrest.core.Is.is;
+import static org.slf4j.LoggerFactory.getLogger;
+
 
 /**
  * Created by Arnaud on 01/11/2016.
@@ -20,6 +30,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class PostItControllerTests {
 
+    protected static final Logger LOGGER = getLogger(PostItControllerTests.class);
+
+    @Autowired
+    ObjectMapper objectMapper;
+
     @Value("${server.port}")
     private Integer port;
 
@@ -28,32 +43,28 @@ public class PostItControllerTests {
         RestAssured.port = port;
     }
 
+    public <T> String toJson(T entity) {
+        try {
+            return objectMapper.writeValueAsString(entity);
+        } catch (JsonProcessingException e) {
+            LOGGER.error("", e);
+            return null;
+        }
+    }
+
     @Test
-    public void shouldGetOnePostIt() {
-        final PostIt postIt = new PostIt();
-        postIt.setContent("contenu du postit, c'est le contenu du post it, chef un lapin! ni!");
-        postIt.setIdPostIt(999999999999999999L);
-        postIt.setPositionX(2f);
-        postIt.setPositionY(3f);
-        postIt.setSizeX(30f);
-        postIt.setSizeY(60f);
-        /*given()
-                .log().all()
-                .contentType(JSON)
-                .body(toJson(innerAccount))
-                .when()
-                .post("/account/create")
-                .then()
-                .log().all()
-                .statusCode(CREATED.value())
-                .body("username", is(innerAccount.getUsername()))
-                .body("name", is(innerAccount.getName()));
-    }*/
+    public void shouldAddOnePostIt() {
+
     }
 
     @Test
     public void shouldGetAllPostIts() {
-
+        given()
+                .log().all()
+        .when()
+                .get("/postit")
+        .then()
+                .log().all();
     }
 
     @Test
