@@ -22,6 +22,7 @@ import java.util.List;
 import static com.jayway.restassured.RestAssured.given;
 import static com.jayway.restassured.http.ContentType.JSON;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -32,6 +33,7 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 @PostItDataset
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
+@WebIntegrationTest
 @RunWith(SpringJUnit4ClassRunner.class)
 public class PostItControllerBigTest {
 
@@ -40,13 +42,8 @@ public class PostItControllerBigTest {
     @Autowired
     ObjectMapper objectMapper;
 
-    @Value("${server.port}")
-    private Integer port;
-
-    @Before
-    public void setupRestassured() {
-        RestAssured.port = port;
-    }
+    @Autowired
+    private PostItController postItController;
 
     public <T> String toJson(T entity) {
         try {
@@ -59,7 +56,7 @@ public class PostItControllerBigTest {
 
     @Test
     public void shouldAddOnePostIt() {
-        /*final PostIt postIt = new PostIt();
+        final PostIt postIt = new PostIt();
         postIt.setContent("contenu du postit, c'est le contenu du post it, chef un lapin! ni!");
         postIt.setIdPostIt((long)999999999);
         postIt.setPositionX(2);
@@ -74,19 +71,21 @@ public class PostItControllerBigTest {
                 .when()
                 .post("/postit")
                 .then()
-                .log().all()
+                .log().all();
+                /*
                 .body("2.0", is(postIt.getPositionX()))
                 .body("3.0", is(postIt.getPositionY()));*/
     }
 
     @Test
     public void shouldGetAllPostIts() {
-        /*given()
-                .log().all()
+        given()
+            .log().all()
         .when()
-                .get("/postit")
+            .get("/postit")
         .then()
-                .log().all();*/
+            .log().all()
+        .body("$", hasSize(10));
     }
 
     @Test
@@ -101,7 +100,7 @@ public class PostItControllerBigTest {
 
     @Test
     public void shouldUpdatePostIt(){
-        /*final PostIt postIt = new PostIt();
+        final PostIt postIt = new PostIt();
         postIt.setContent("contenu du postit, c'est le contenu du post it, chef un lapin! ni!");
         postIt.setIdPostIt((long)1);
         postIt.setPositionX(2);
@@ -120,6 +119,6 @@ public class PostItControllerBigTest {
             }
         }
         assertThat(modified, is(true));
-        */
+
     }
 }
