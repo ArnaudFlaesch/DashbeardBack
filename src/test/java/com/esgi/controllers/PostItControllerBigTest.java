@@ -30,6 +30,7 @@ import static org.slf4j.LoggerFactory.getLogger;
  * Created by Arnaud on 01/11/2016.
  * Modified by Valentin on 22/11/2016
  */
+@ActiveProfiles("tests")
 @PostItDataset
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -39,14 +40,6 @@ public class PostItControllerBigTest {
 
     @Autowired
     ObjectMapper objectMapper;
-
-    @Value("${server.port}")
-    private Integer port;
-
-    @Before
-    public void setupRestassured() {
-        RestAssured.port = port;
-    }
 
     public <T> String toJson(T entity) {
         try {
@@ -59,7 +52,7 @@ public class PostItControllerBigTest {
 
     @Test
     public void shouldAddOnePostIt() {
-        /*final PostIt postIt = new PostIt();
+        final PostIt postIt = new PostIt();
         postIt.setContent("contenu du postit, c'est le contenu du post it, chef un lapin! ni!");
         postIt.setIdPostIt((long)999999999);
         postIt.setPositionX(2);
@@ -76,7 +69,7 @@ public class PostItControllerBigTest {
                 .then()
                 .log().all()
                 .body("2.0", is(postIt.getPositionX()))
-                .body("3.0", is(postIt.getPositionY()));*/
+                .body("3.0", is(postIt.getPositionY()));
     }
 
     @Test
