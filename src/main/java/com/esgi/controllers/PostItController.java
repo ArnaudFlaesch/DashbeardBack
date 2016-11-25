@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * Created by Arnaud on 01/11/2016.
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/postit")
 public class PostItController {
