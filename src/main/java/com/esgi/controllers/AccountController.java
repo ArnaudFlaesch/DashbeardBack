@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 /**
- * Created by MNV on 11/04/2016.
+ * Created by valentin on 25/11/2016.
  */
 @RequestMapping(value = "/account")
 @RestController
