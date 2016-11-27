@@ -2,6 +2,7 @@ package com.esgi.controllers;
 
 import com.esgi.DashbeardApiApplication;
 import com.esgi.model.PostIt;
+import com.esgi.repositories.datasets.AccountDataset;
 import com.esgi.repositories.datasets.PostItDataset;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -33,7 +34,6 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 @PostItDataset
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
-@WebIntegrationTest
 @RunWith(SpringJUnit4ClassRunner.class)
 public class PostItControllerBigTest {
 

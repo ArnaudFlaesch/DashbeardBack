@@ -13,6 +13,13 @@ public class InnerAccount {
 
     private String name;
 
+    public InnerAccount(String username, String password, String email, String name) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.name = name;
+    }
+
     public static boolean isValid(InnerAccount innerAccount) {
         return !(innerAccount == null
                 || innerAccount.getUsername() == null
