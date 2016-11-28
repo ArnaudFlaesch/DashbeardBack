@@ -32,6 +32,7 @@ import static org.slf4j.LoggerFactory.getLogger;
  * Created by Arnaud on 01/11/2016.
  * Modified by Valentin on 22/11/2016
  */
+@ActiveProfiles("tests")
 @PostItDataset
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -85,7 +86,7 @@ public class PostItControllerBigTest {
             .get("/postit")
         .then()
             .log().all()
-        .body("$", hasSize(10));
+        .body("$", hasSize(12));
     }
 
     @Test

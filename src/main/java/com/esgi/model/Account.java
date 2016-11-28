@@ -45,6 +45,8 @@ public class Account {
     @Column(name = "active")
     private boolean active;
 
+    public Account() {}
+
     public Account(String username, String name, String email, String password, String tokenValue, long tokenExpirationDate) {
         this.username = username;
         this.name = name;

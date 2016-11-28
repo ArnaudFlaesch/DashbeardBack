@@ -25,8 +25,7 @@ public class TokenControllerBigTest {
         LOGGER.info("token is ::: "+token);
         given()
                 .log().all()
-                .contentType(JSON)
-                .queryParam("tokenValue", "1234567")
+                .queryParam("tokenValue", token)
                 .when()
                 .post("/token/check")
                 .then()
