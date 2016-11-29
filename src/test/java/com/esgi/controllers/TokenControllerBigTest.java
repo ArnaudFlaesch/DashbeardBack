@@ -18,6 +18,7 @@ import static org.springframework.http.HttpStatus.ACCEPTED;
 public class TokenControllerBigTest {
 
     protected static final Logger LOGGER = getLogger(PostItControllerBigTest.class);
+/*
 
     @Test
     public void should_accept_token() {
@@ -63,5 +64,5 @@ public class TokenControllerBigTest {
                 .log().all()
                 .body("exception", is(BadTokenException.class.getName()));
     }
-
+*/
 }
