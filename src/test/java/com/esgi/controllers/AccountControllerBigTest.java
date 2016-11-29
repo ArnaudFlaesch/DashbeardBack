@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static com.jayway.restassured.RestAssured.given;
@@ -25,6 +26,7 @@ import static org.springframework.http.HttpStatus.*;
 /**
  * Created by valentin on 26/11/2016.
  */
+@ActiveProfiles
 @AccountDataset
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
