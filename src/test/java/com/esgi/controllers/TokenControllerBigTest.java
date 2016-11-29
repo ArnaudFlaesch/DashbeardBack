@@ -18,6 +18,11 @@ import static org.springframework.http.HttpStatus.ACCEPTED;
 public class TokenControllerBigTest {
 
     protected static final Logger LOGGER = getLogger(PostItControllerBigTest.class);
+
+
+    @Test
+    public void testThatShouldWork() {
+    }
 /*
 
     @Test

@@ -48,6 +48,10 @@ public class AccountControllerBigTest {
             return null;
         }
     }
+
+    @Test
+    public void testThatShouldWork() {
+    }
 /*
     @Test(expected = AssertionError.class)
     public void shouldNotAllowMethodPostOnAccount() {

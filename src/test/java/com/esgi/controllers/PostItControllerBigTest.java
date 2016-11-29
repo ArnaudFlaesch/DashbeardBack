@@ -58,6 +58,11 @@ public class PostItControllerBigTest {
             return null;
         }
     }
+
+
+    @Test
+    public void testThatShouldWork() {
+    }
 /*
     @Test
     public void shouldAddOnePostIt() {
