@@ -36,7 +36,7 @@ public class AccountControllerTest {
     Account mockAccount;
 
     @Test
-    public void should_create_new_account() {
+    public void shouldCreateNewAccount() {
         final InnerAccount innerAccount = new InnerAccount(
                 "Nusername",
                 "Npassword",
@@ -48,7 +48,7 @@ public class AccountControllerTest {
     }
 
     @Test(expected = CreationAccountException.class)
-    public void should_not_create_new_account_when_username_is_empty() {
+    public void shouldNotCreateNewAccountWhenUsernameIsEmpty() {
         final InnerAccount innerAccount = new InnerAccount(
                 "",
                 "Npassword",
@@ -59,7 +59,7 @@ public class AccountControllerTest {
     }
 
     @Test(expected = CreationAccountException.class)
-    public void should_not_create_new_account_when_password_is_empty() {
+    public void shouldNotCreateNewAccountWhenPasswordIsEmpty() {
         final InnerAccount innerAccount = new InnerAccount(
                 "Nusername",
                 "",
@@ -70,7 +70,7 @@ public class AccountControllerTest {
     }
 
     @Test
-    public void should_delete_account() {
+    public void shouldDeleteAccount() {
         accountController.deleteAccount(any());
         verify(tokenService).getUuidFromToken(any());
         verify(accountService).deactivateAccount(any());

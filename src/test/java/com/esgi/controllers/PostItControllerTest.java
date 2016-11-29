@@ -41,13 +41,13 @@ public class PostItControllerTest {
     PostIt mockPostIt;
 
     @Test
-    public void should_create_new_post_it() {
+    public void shouldCreateNewPostIt() {
         postItController.addPostIt(mockPostIt);
         verify(postItRepository, atLeastOnce()).save(mockPostIt);
     }
 
     @Test//(expected = Error.class)
-    public void should_not_create_new_postit_when_id_exists() {
+    public void shouldNotCreateNewPostitWhenIdExists() {
         final PostIt postIt = new PostIt();
         postIt.setContent("contenu du postit, c'est le contenu du post it, chef un lapin! ni!");
         postIt.setIdPostIt((long)1);
@@ -59,13 +59,13 @@ public class PostItControllerTest {
     }
 
     @Test
-    public void should_modify_post_it() {
+    public void shouldModifyPostIt() {
         postItController.updatePostIt(mockPostIt);
         verify(postItRepository, atLeastOnce()).save(mockPostIt);
     }
 
     @Test
-    public void should_delete_post_it() {
+    public void shouldDeletePostIt() {
         postItController.removePostIt(mockPostIt.getIdPostIt());
         verify(postItRepository, atLeastOnce()).delete(mockPostIt.getIdPostIt());
     }

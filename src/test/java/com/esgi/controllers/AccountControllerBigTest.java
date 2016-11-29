@@ -50,7 +50,7 @@ public class AccountControllerBigTest {
     }
 /*
     @Test(expected = AssertionError.class)
-    public void should_not_allow_method_post_on_account() {
+    public void shouldNotAllowMethodPostOnAccount() {
         given()
                 .log().all()
                 .contentType(JSON)
@@ -63,7 +63,7 @@ public class AccountControllerBigTest {
     }
 
     @Test
-    public void should_create_new_account() throws JsonProcessingException {
+    public void shouldCreateNewAccount() throws JsonProcessingException {
         final InnerAccount innerAccount = new InnerAccount(
                                                 "LONGPOTATO",
                                                 "long_passwd",
@@ -84,7 +84,7 @@ public class AccountControllerBigTest {
     }
 
     @Test(expected = AssertionError.class)
-    public void should_not_create_new_account_because_of_an_already_existing_username() throws JsonProcessingException {
+    public void shouldNotCreateNewAccountBecauseOfAnAlreadyExistingUsername() throws JsonProcessingException {
         final InnerAccount innerAccount = new InnerAccount(
                 "LONGPOTATO",
                 "long_passwd",
@@ -117,7 +117,7 @@ public class AccountControllerBigTest {
     }
 
     @Test(expected = AssertionError.class)
-    public void should_not_create_new_account() throws JsonProcessingException {
+    public void shouldNotCreateNew_Account() throws JsonProcessingException {
         final InnerAccount innerAccount = new InnerAccount(
                 "LONGPOTATO",
                 "long_passwd",
@@ -138,7 +138,7 @@ public class AccountControllerBigTest {
     }
 
     @Test
-    public void should_sign_in() throws JsonProcessingException {
+    public void shouldSignIn() throws JsonProcessingException {
         final Credential credential = new Credential(
                 "Ness147",
                 "ness_passwd"
@@ -166,7 +166,7 @@ public class AccountControllerBigTest {
     }
 
     @Test
-    public void should_sign_out() throws JsonProcessingException {
+    public void shouldSignOut() throws JsonProcessingException {
         String isSignOut = given()
                 .log().all()
                 .contentType(JSON)
@@ -185,7 +185,7 @@ public class AccountControllerBigTest {
     }
 
     @Test(expected = AssertionError.class)
-    public void should_not_sign_out() throws JsonProcessingException {
+    public void shouldNotSignOut() throws JsonProcessingException {
         String isSignOut = given()
                 .log().all()
                 .contentType(JSON)
@@ -204,7 +204,7 @@ public class AccountControllerBigTest {
     }
 
     @Test
-    public void should_not_sign_out_because_of_an_already_expired_token() throws JsonProcessingException {
+    public void shouldNotSignOutBecauseOfAnAlreadyExpiredToken() throws JsonProcessingException {
         given()
                 .log().all()
                 .contentType(JSON)
@@ -219,7 +219,7 @@ public class AccountControllerBigTest {
     }
 
     @Test
-    public void should_deactivate_account() throws JsonProcessingException {
+    public void shouldDeactivateAccount() throws JsonProcessingException {
         given()
                 .log().all()
                 .contentType(JSON)
@@ -235,7 +235,7 @@ public class AccountControllerBigTest {
     }
 
     @Test(expected = AssertionError.class)
-    public void should_not_deactivate_account_because_of_unexisting_token() throws JsonProcessingException {
+    public void shouldNotDeactivateAccountBecauseOfUnexistingToken() throws JsonProcessingException {
         given()
                 .log().all()
                 .contentType(JSON)
@@ -250,7 +250,7 @@ public class AccountControllerBigTest {
     }
 
     @Test(expected = AssertionError.class)
-    public void should_not_deactivate_account_because_of_expired_token() throws JsonProcessingException {
+    public void shouldNotDeactivateAccountBecauseOfExpiredToken() throws JsonProcessingException {
         given()
                 .log().all()
                 .contentType(JSON)
@@ -263,7 +263,7 @@ public class AccountControllerBigTest {
     }
 
     @Test(expected = AssertionError.class)
-    public void should_not_deactivate_account_because_of_account_is_already_deactivated() throws JsonProcessingException {
+    public void shouldNotDeactivateAccountBecauseOfAccountIsAlreadyDeactivated() throws JsonProcessingException {
         given()
                 .log().all()
                 .contentType(JSON)

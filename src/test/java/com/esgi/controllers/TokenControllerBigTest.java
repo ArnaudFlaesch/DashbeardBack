@@ -21,7 +21,7 @@ public class TokenControllerBigTest {
 /*
 
     @Test
-    public void should_accept_token() {
+    public void shouldAcceptToken() {
         String token = "1234567";
         LOGGER.info("token is ::: "+token);
         given()
@@ -36,7 +36,7 @@ public class TokenControllerBigTest {
     }
 
     @Test
-    public void should_refuse_token_because_is_expired() {
+    public void shouldRefuseTokenBecauseIsExpired() {
         String token = "ABCDEFGHL";
         LOGGER.info("token is ::: "+token);
         given()
@@ -51,7 +51,7 @@ public class TokenControllerBigTest {
     }
 
     @Test
-    public void should_refuse_token_because_is_not_existing() {
+    public void shouldRefuseTokenBecauseIsNotExisting() {
         String token = "JKNKLDNLKDKLDKL?LKD?LKD?LD?LK?DL?DLK?LKD?LD?LKD?LKD?LD?";
         LOGGER.info("token is ::: "+token);
         given()
