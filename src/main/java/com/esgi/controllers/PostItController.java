@@ -27,8 +27,8 @@ public class PostItController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void addPostIt(@RequestBody PostIt newPostIt) {
-        postItRepository.save(newPostIt);
+    public PostIt addPostIt(@RequestBody PostIt newPostIt) {
+        return(postItRepository.save(newPostIt));
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)

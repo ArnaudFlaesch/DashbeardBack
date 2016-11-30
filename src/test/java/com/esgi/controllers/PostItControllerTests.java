@@ -29,7 +29,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @PostItDataset
 @RunWith(MockitoJUnitRunner.class)
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
-public class PostItControllerTest {
+public class PostItControllerTests {
 
     @InjectMocks
     PostItController postItController;

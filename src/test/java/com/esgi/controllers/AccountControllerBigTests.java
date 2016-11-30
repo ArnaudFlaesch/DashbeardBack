@@ -32,9 +32,9 @@ import static org.springframework.http.HttpStatus.*;
 @WebIntegrationTest
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
-public class AccountControllerBigTest {
+public class AccountControllerBigTests {
 
-    protected static final Logger LOGGER = getLogger(PostItControllerBigTest.class);
+    protected static final Logger LOGGER = getLogger(PostItControllerBigTests.class);
 
     @Autowired
     ObjectMapper objectMapper;

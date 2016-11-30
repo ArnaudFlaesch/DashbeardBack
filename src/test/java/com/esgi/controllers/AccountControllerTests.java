@@ -21,7 +21,7 @@ import static org.mockito.Mockito.verify;
  */
 @RunWith(MockitoJUnitRunner.class)
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
-public class AccountControllerTest {
+public class AccountControllerTests {
 
     @InjectMocks
     AccountController accountController;

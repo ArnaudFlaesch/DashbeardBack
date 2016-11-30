@@ -5,7 +5,6 @@ import com.esgi.exceptions.BadTokenException;
 import com.esgi.repositories.datasets.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 import org.slf4j.Logger;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
@@ -27,9 +26,9 @@ import static org.springframework.http.HttpStatus.ACCEPTED;
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
 @AccountDataset
 @RunWith(SpringJUnit4ClassRunner.class)
-public class TokenControllerBigTest {
+public class TokenControllerBigTests {
 
-    protected static final Logger LOGGER = getLogger(PostItControllerBigTest.class);
+    protected static final Logger LOGGER = getLogger(PostItControllerBigTests.class);
 
 
     @Test

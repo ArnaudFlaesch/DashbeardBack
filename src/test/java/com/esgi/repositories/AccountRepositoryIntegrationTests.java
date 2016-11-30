@@ -28,7 +28,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
 @AccountDataset
-public class AccountRepositoryIntegrationTest {
+public class AccountRepositoryIntegrationTests {
 
     private static final org.slf4j.Logger LOGGER = getLogger(DashbeardApiApplication.class);
 
