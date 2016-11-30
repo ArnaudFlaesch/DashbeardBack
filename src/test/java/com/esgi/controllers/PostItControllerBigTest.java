@@ -2,7 +2,7 @@ package com.esgi.controllers;
 
 import com.esgi.DashbeardApiApplication;
 import com.esgi.model.PostIt;
-import com.esgi.repositories.datasets.AccountDataset;
+import com.esgi.repositories.datasets.*;
 import com.esgi.repositories.datasets.PostItDataset;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,7 +35,7 @@ import static org.slf4j.LoggerFactory.getLogger;
  * Created by Arnaud on 01/11/2016.
  * Modified by Valentin on 22/11/2016
  */
-@WebAppConfiguration
+@WebIntegrationTest
 @ActiveProfiles("tests")
 @PostItDataset
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
@@ -63,7 +63,7 @@ public class PostItControllerBigTest {
     @Test
     public void testThatShouldWork() {
     }
-/*
+
     @Test
     public void shouldAddOnePostIt() {
         final PostIt postIt = new PostIt();
@@ -81,8 +81,8 @@ public class PostItControllerBigTest {
                 .when()
                 .post("/postit")
                 .then()
-                .log().all();
-                /*
+                .log().all()
+
                 .body("2.0", is(postIt.getPositionX()))
                 .body("3.0", is(postIt.getPositionY()));
     }
@@ -131,6 +131,4 @@ public class PostItControllerBigTest {
         assertThat(modified, is(true));
 
     }
-
-*/
 }

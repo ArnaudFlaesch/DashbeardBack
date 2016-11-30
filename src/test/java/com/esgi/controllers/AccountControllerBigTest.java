@@ -5,7 +5,7 @@ import com.esgi.model.Credential;
 import com.esgi.model.InnerAccount;
 import com.esgi.model.OuterAccount;
 import com.esgi.repositories.AccountRepository;
-import com.esgi.repositories.datasets.AccountDataset;
+import com.esgi.repositories.datasets.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -28,6 +29,7 @@ import static org.springframework.http.HttpStatus.*;
  */
 @ActiveProfiles
 @AccountDataset
+@WebIntegrationTest
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
 public class AccountControllerBigTest {
@@ -52,7 +54,7 @@ public class AccountControllerBigTest {
     @Test
     public void testThatShouldWork() {
     }
-/*
+
     @Test(expected = AssertionError.class)
     public void shouldNotAllowMethodPostOnAccount() {
         given()
@@ -278,5 +280,4 @@ public class AccountControllerBigTest {
                 .log().all()
                 .statusCode(ACCEPTED.value());
     }
-*/
 }

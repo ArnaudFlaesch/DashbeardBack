@@ -3,11 +3,12 @@ package com.esgi.repositories;
 import com.esgi.DashbeardApiApplication;
 import com.esgi.model.Account;
 import com.esgi.model.TimestampMillis;
-import com.esgi.repositories.datasets.AccountDataset;
+import com.esgi.repositories.datasets.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 /**
  * Created by valentin on 26/11/2016.
  */
+@ActiveProfiles("tests")
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = DashbeardApiApplication.class)
 @AccountDataset
