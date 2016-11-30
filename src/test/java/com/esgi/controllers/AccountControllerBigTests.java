@@ -27,7 +27,7 @@ import static org.springframework.http.HttpStatus.*;
 /**
  * Created by valentin on 26/11/2016.
  */
-@ActiveProfiles
+@ActiveProfiles("tests")
 @AccountDataset
 @WebIntegrationTest
 @RunWith(SpringJUnit4ClassRunner.class)
