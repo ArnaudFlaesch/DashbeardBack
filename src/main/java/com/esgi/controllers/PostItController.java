@@ -31,13 +31,13 @@ public class PostItController {
         return(postItRepository.save(newPostIt));
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void updatePostIt(@RequestBody PostIt updatedPostIt) {
         postItRepository.save(updatedPostIt);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE)
+    @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void removePostIt(@RequestParam Long idPostIt) {
         postItRepository.delete(idPostIt);
